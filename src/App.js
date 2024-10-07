@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+// dependencies
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { UserStorage } from './UserContext';
+// components
+import Header from './components/Header';
+// pages
+import Home from './pages/Home';
+import Login from './pages/login/Login';
+import User from './pages/conta/User';
+import ProtectedRoute from './helpers/ProtectedRoute';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <UserStorage>
+        <Header />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/login/*' element={<Login />} />
+          <Route exact path='/conta/*' element={<ProtectedRoute><User /></ProtectedRoute>} />
+          <Route exact path='/*' element={<NotFound />} />
+        </Routes>
+      </UserStorage>
+    </Router>
+  )
 }
 
 export default App;
