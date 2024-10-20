@@ -17,7 +17,6 @@ export const UserStorage = ({ children }) => {
             setLoading(true);
             const { url, options } = USER_GET(token);
             const response = await fetch(url, options);
-            if (!response.ok) throw new Error("Erro ao fazer login");
             const result = await response.json();
             setLogin(true);
             setData(result);
@@ -34,6 +33,7 @@ export const UserStorage = ({ children }) => {
             setLoading(true);
             const { url, options } = TOKEN_POST({ username, password });
             const response = await fetch(url, options);
+            if(!response.ok) throw new Error("Erro ao logar, tente novamente");
             const { token } = await response.json();
             window.localStorage.setItem('token', token);
             await getUser(token);
