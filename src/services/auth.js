@@ -30,3 +30,14 @@ export const TOKEN_POST_VALIDATE = (token) => {
         }
     }
 }
+
+export const USER_POST = (body) => {
+    return {
+        url: `${URL_BASE}/api/user`,
+        options: {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        }
+    }
+}
