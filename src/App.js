@@ -1,29 +1,29 @@
 import './App.css';
 // dependencies
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { UserStorage } from './UserContext';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { UserStorage } from './contexts/UserContext';
 // components
 import Header from './components/Header';
+import Footer from './components/Footer';
 // pages
 import Home from './pages/Home';
 import Login from './pages/login/Login';
-import User from './pages/conta/User';
-import ProtectedRoute from './helpers/ProtectedRoute';
-import NotFound from './pages/NotFound';
+import User from './pages/user/User';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <UserStorage>
         <Header />
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/login/*' element={<Login />} />
-          <Route exact path='/conta/*' element={<ProtectedRoute><User /></ProtectedRoute>} />
-          <Route exact path='/*' element={<NotFound />} />
+          <Route path='/login/*' element={<Login />} />
+          <Route path='/conta/*' element={<User />} />
         </Routes>
+        <Footer />
       </UserStorage>
-    </Router>
+    </BrowserRouter>
   )
 }
 

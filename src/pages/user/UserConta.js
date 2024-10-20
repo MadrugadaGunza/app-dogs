@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Home = () => {
+const UserConta = () => {
     return (
         <section className='container'>
-            <h1 className='title'>Home</h1>
+            <h1 className='title'>Minha Conta</h1>
         </section>
     )
 }
 
-export default Home
+export default UserConta

@@ -1,22 +1,32 @@
-import { BASE_URL } from "./api"
+import { URL_BASE } from "./api";
 
-export const USER_LOGIN = ({ email, password }) => {
+export const TOKEN_POST = ({ username, password }) => {
     return {
-        url: `${BASE_URL}/auth`,
+        url: `${URL_BASE}/jwt-auth/v1/token`,
         options: {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ username, password })
         }
     }
 }
 
-export const GET_USER = (token) => {
+export const USER_GET = (token) => {
     return {
-        url: `${BASE_URL}/user/token/validate`,
+        url: `${URL_BASE}/api/user`,
         options: {
             method: 'GET',
-            headers: { Authorization: `Bearer ${token}` }
+            headers: { Authorization: 'Bearer ' + token }
+        }
+    }
+}
+
+export const TOKEN_POST_VALIDATE = (token) => {
+    return {
+        url: `${URL_BASE}/jwt-auth/v1/token/validate`,
+        options: {
+            method: 'POST',
+            headers: { Authorization: 'Bearer ' + token }
         }
     }
 }
