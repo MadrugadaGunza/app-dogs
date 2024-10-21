@@ -1,16 +1,22 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
-import { UserContext } from '../../contexts/UserContext';
-import UserConta from './UserConta'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+// components
+import UserHeader from '../../components/user/UserHeader';
+import Feed from '../../components/feed/Feed';
+// pages
+import UserPhotoPost from './UserPhotoPost';
+import UserStats from './UserStats';
 
 const User = () => {
-    const { login } = React.useContext(UserContext);
-    if (login === false) return <Navigate to='/login' />;
-
     return (
-        <Routes>
-            <Route path='/' element={<UserConta />} />
-        </Routes>
+        <section className='container'>
+            <UserHeader />
+            <Routes>
+                <Route path='/' element={<Feed />} />
+                <Route path='/postar' element={<UserPhotoPost />} />
+                <Route path='/estatisticas' element={<UserStats />} />
+            </Routes>
+        </section>
     )
 }
 

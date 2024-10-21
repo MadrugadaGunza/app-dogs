@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/login/Login';
 import User from './pages/user/User';
+import ProtectedRoute from './helpers/ProtectedRoute';
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/login/*' element={<Login />} />
-          <Route path='/conta/*' element={<User />} />
+          <Route
+            path='/conta/*'
+            element={<ProtectedRoute><User /></ProtectedRoute>}
+          />
         </Routes>
         <Footer />
       </UserStorage>

@@ -5,6 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { USER_POST } from '../../services/auth';
 import { UserContext } from '../../contexts/UserContext';
+import useFetch from '../../hooks/useFetch';
 // components
 import Input from '../../components/forms/Input';
 import Button from '../../components/forms/Button';
@@ -14,11 +15,12 @@ const LoginCreate = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const { userLogin } = React.useContext(UserContext);
+    const { loading, request } = useFetch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { url, options } = USER_POST({ username, email, password });
-        const response = await fetch(url, options);
+        const { response } = await request(url, options);
         if (response.ok) userLogin({ username, password });
     }
 
@@ -38,7 +40,7 @@ const LoginCreate = () => {
                     placeholder='Digite a senha'
                     value={password} onChange={({ target }) => setPassword(target.value)}
                 />
-                <Button>Cadastrar</Button>
+                {loading ? <Button disabled>Carregando...</Button> : <Button>Cadastrar</Button>}
             </form>
             <div className={styles.cadastro}>
                 <h2 className={styles.subtitle}>Faça login</h2>

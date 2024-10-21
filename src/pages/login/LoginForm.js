@@ -12,7 +12,7 @@ import Button from '../../components/forms/Button';
 const LoginForm = () => {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const { userLogin, loading, error } = React.useContext(UserContext);
+    const { userLogin, loading } = React.useContext(UserContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
