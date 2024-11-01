@@ -1,11 +1,11 @@
 import { URL_BASE } from "./api"
 
-export const GET_PHOTO = () => {
+export const PHOTOS_GET = ({ page, total, user }) => {
     return {
-        url: `${URL_BASE}/api/photo`,
+        url: `${URL_BASE}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
         options: {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
+            cache: 'no-store'
         }
     }
 }
