@@ -9,3 +9,14 @@ export const GET_PHOTO = () => {
         }
     }
 }
+
+export const PHOTO_POST = (formData, token) => {
+    return {
+        url: `${URL_BASE}/api/photo`,
+        options: {
+            method: 'POST',
+            headers: { authorization: 'Bearer ' + token },
+            body: formData
+        }
+    }
+}

@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            footer
+            Footer
         </footer>
     )
 }

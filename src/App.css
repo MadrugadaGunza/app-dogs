@@ -48,10 +48,23 @@ a {
   color: #333;
 }
 
+.input-file{
+  background: #eee;
+  width: 100%;
+  padding: .8rem .5rem;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
 .container {
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
+}
+
+.mainContainer{
+  margin-top: 4rem;
 }
 
 .animeLeft {
