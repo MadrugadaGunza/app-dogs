@@ -20,3 +20,13 @@ export const PHOTO_POST = (formData, token) => {
         }
     }
 }
+
+export const PHOTO_GET = (id) => {
+    return {
+        url: `${URL_BASE}/api/photo/${id}`,
+        options: {
+            method: 'GET',
+            cache: 'no-store'
+        }
+    }
+}

@@ -8,7 +8,7 @@ import { PHOTOS_GET } from '../../services/photo';
 import FeedPhotosItem from './FeedPhotosItem';
 import Loading from '../../helpers/Loading';
 
-const FeedPhotos = () => {
+const FeedPhotos = ({ setModalPhoto }) => {
     const { data, error, loading, request } = useFetch();
 
     React.useEffect(() => {
@@ -24,7 +24,9 @@ const FeedPhotos = () => {
     if (data)
         return (
             <ul className={styles.feed}>
-                {data && data.map((photo) => <FeedPhotosItem key={photo.id} photo={photo} />)}
+                {data && data.map((photo) => (
+                    <FeedPhotosItem key={photo.id} photo={photo} setModalPhoto={setModalPhoto} />
+                ))}
             </ul>
         )
     else return null;
