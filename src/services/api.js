@@ -1,1 +1,0 @@
-export const URL_BASE = 'https://dogsapi.origamid.dev/json';
