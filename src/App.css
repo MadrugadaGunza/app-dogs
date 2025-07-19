@@ -8,11 +8,12 @@
 
 body {
   margin: 0;
+  padding: 0;
   color: #333;
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: 'Spectral', georgia;
   font-family: var(--type-first);
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
 }
 
 h1,
@@ -48,7 +49,7 @@ a {
   color: #333;
 }
 
-.input-file{
+.input-file {
   background: #eee;
   width: 100%;
   padding: .8rem .5rem;
@@ -63,7 +64,7 @@ a {
   margin: 0 auto;
 }
 
-.mainContainer{
+.mainContainer {
   margin-top: 4rem;
 }
 
